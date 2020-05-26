@@ -6,6 +6,8 @@ import Home from '@/components/home/Home';
 import Member from '@/components/member/Member';
 import Cart from '@/components/cart/Cart';
 import Search from '@/components/search/Search';
+import NewsList from '@/components/News/NewsList'
+import NewsDetail from '@/components/News/NewsDetail'
 
 Vue.use(Router)
 // 解决两次访问相同路由地址报错
@@ -38,6 +40,18 @@ export default new Router({
         path: '/search',
         name: 'search',
         component: Search
+      },
+      //新闻列表路由地址
+      {
+        path:'/newslist',
+        name:'newsList',
+        component: NewsList
+      },
+      //新闻详细路由地址
+      {
+        path:'/news/detail',
+        name:'newsDetail',
+        component:NewsDetail
       }
     // {
     //   path: '/',

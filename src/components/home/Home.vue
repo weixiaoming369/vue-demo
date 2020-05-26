@@ -1,5 +1,6 @@
 <template>
-    <div id="lunbo">        
+    <div id="lunbo">
+        <!--显示的轮播图  -->
         <mt-swipe :auto="4000">
             <mt-swipe-item v-for="(item,index) in images" :key="index">
                 <img class="lunboimg" :src="item.url">
@@ -8,10 +9,10 @@
 
         <ul>
             <li>
-                <a href="http://www.baidu.com">
+                <router-link to="newslist">
                     <img src="../../assets/xinwen.jpg">
                     <div class="p">新闻资讯</div>
-                </a>
+                </router-link>
             </li>
             <li>
                 <img src="../../assets/fenxiang.jpg">
