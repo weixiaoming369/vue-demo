@@ -5,3 +5,39 @@
 li{
     list-style: none;
 }
+/* preview的样式 */
+.my-gallery{
+    width: 100%;
+    height: 300px;
+    /* padding: 2px; */
+    text-align: center;
+}
+.my-gallery img{
+    height: 123px;
+    width: 123px;
+    margin: 2px;
+}
+figure{
+    margin: 0;
+    padding: 0;
+    width: 33.31%;
+    float: left;
+}
+.news-content img{
+    float: left;
+    padding-right:11px;
+    padding-bottom: 5px;
+}
+/* 设置新闻详情部分到底部tabar的distance */
+.news-content p{
+    text-indent:2em;
+    text-align: justify;
+    font-family: '楷体';
+    font-size: 18px;
+    line-height: 24px;
+    
+}
+/* 设置app.vue底部的tabar上面的div内容的distance */
+.tabbarHeight{
+    margin-bottom: 58px;
+}

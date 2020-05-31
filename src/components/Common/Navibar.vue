@@ -33,5 +33,7 @@ h1,h2{
     margin-bottom: 0px;
 }
 
-
+.cms-s-header h1:nth-child(2){
+    text-align: right;
+}
 </style>

@@ -1,47 +1,76 @@
 <template>
   <div id="app">
     <!-- 顶部的header -->
-      <mt-header  class="hederFont" title="我的vue信息管理系统">
-        <router-link to="/" slot="left">
-          <mt-button icon="back">back</mt-button>
-        </router-link>
-        <mt-button icon="more" slot="right"></mt-button>
-      </mt-header>
+    <mt-header class="hederFont" title="我的vue信息管理系统">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">back</mt-button>
+      </router-link>
+      <mt-button icon="more" slot="right"></mt-button>
+    </mt-header>
 
-      <!-- 进行路由的点击跳转 -->
-      <router-view/> 
+    <!-- 进行路由的点击跳转 -->
+    <router-view class="tabbarHeight" />
 
-      <!-- 底部tabbar的菜单 -->
-      <mt-tabbar v-model="selected">
-          <!-- 这里的id home对应路由的名称 -->
-          <mt-tab-item id="home">
-            <img @click="changClickTabBarPosition" slot="icon" src="./assets/01.jpg">
-            首页
-          </mt-tab-item>
-          <mt-tab-item id="member">
-            <img @click="changClickTabBarPosition" slot="icon" src="./assets/02.jpg">
-            会员
-          </mt-tab-item>
-          <mt-tab-item id="cart">
-            <img @click="changClickTabBarPosition" slot="icon" src="./assets/03.jpg">
-            购物车
-          </mt-tab-item>
-          <mt-tab-item id="search">
-            <img @click="changClickTabBarPosition" slot="icon" src="./assets/04.jpg">
-            查找
-          </mt-tab-item>
-        </mt-tabbar>
+    <!-- 底部tabbar的菜单 -->
+    <mt-tabbar v-model="selected">
+      <!-- 这里的id home对应路由的名称 -->
+      <mt-tab-item id="home">
+        <img
+          @click="changClickTabBarPosition"
+          slot="icon"
+          src="./assets/01.jpg"
+        />
+        首页
+      </mt-tab-item>
+      <mt-tab-item id="member">
+        <img
+          @click="changClickTabBarPosition"
+          slot="icon"
+          src="./assets/02.jpg"
+        />
+        会员
+      </mt-tab-item>
+      <mt-tab-item id="cart">
+        <img
+          @click="changClickTabBarPosition"
+          slot="icon"
+          src="./assets/03.jpg"
+        />
+        购物车
+        <!-- 使用mintui组件  badge -->
+        <mt-badge size="normal" type="error" v-if="catAmount > 0">{{
+          catAmount
+        }}</mt-badge>
+      </mt-tab-item>
+      <mt-tab-item id="search">
+        <img
+          @click="changClickTabBarPosition"
+          slot="icon"
+          src="./assets/04.jpg"
+        />
+        查找
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
 <script>
+  //导入自己的js文件
+import EventBus from './EventBus.js'
 export default {
+
   name: 'App',
   data(){
      return {
       //msg:'我的vue信息管理系统',
-      selected:''
+      selected:'',
+      catAmount:1
      }
+  },
+  created() {
+    EventBus.$on('addCatCount', data=>{
+        this.catAmount=data;
+    });
   },
   methods: {
     changClickTabBarPosition:function(){
@@ -54,11 +83,10 @@ export default {
         })
       }, 20);
 
-
-      /*这个写法不起作用，用上面的方法替代
-        this.this.$nextTick(function () {
-        console.log('之后', this.selected)
-      }); */
+      /*这个写法不起作用，用上面的方法替代*/
+      //   this.$nextTick(function () {
+      //   console.log('之后', this.selected)
+      // });
     }
   }
   // watch: {
@@ -76,15 +104,15 @@ export default {
 </script>
 
 <style>
- body{
-   margin: 0px;
-   padding:0px;
- }
- .hederFont{
-   font-size: 18px;
- }
- .mint-tabbar{
-   position: fixed;
-   bottom: 0px;
- }
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.hederFont {
+  font-size: 18px;
+}
+.mint-tabbar {
+  position: fixed;
+  bottom: 0px;
+}
 </style>

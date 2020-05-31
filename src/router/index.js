@@ -8,7 +8,13 @@ import Cart from '@/components/cart/Cart';
 import Search from '@/components/search/Search';
 import NewsList from '@/components/News/NewsList'
 import NewsDetail from '@/components/News/NewsDetail'
+import Share from '@/components/photo/Share'
+import PhotoDetail from '@/components/photo/Detail'
+import GoodsList from '@/components/goods/GoodsList'
+import GoodsDetail from '@/components/goods/GoodsDetail'
 
+//注册vuepreview测试效果
+import vp from '@/components/testDemo/vuePreview'
 Vue.use(Router)
 // 解决两次访问相同路由地址报错
 const routerPush = Router.prototype.push
@@ -52,6 +58,35 @@ export default new Router({
         path:'/news/detail',
         name:'newsDetail',
         component:NewsDetail
+      },
+      //图文分享
+      {
+        path:'/share/list/:categoryId',
+        name:'share',
+        component:Share
+      },
+      //图文详细
+      {
+        path:'/photo/detail',
+        name:'photoDetail',
+        component:PhotoDetail
+      },
+      {
+        path:'/photo/detail2',
+        name:'photoDetails2',
+        component:vp
+      },
+      //商品展示
+      {
+        path:'/goods/list',
+        name:'goodsList',
+        component:GoodsList
+      },
+      //商品详情
+      {
+        path:'/goods/detail/:id',
+        name:'goodsDetail',
+        component:GoodsDetail
       }
     // {
     //   path: '/',

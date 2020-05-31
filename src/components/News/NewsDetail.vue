@@ -6,11 +6,10 @@
             <div>
                 <span>单击{{message.clickamount}}次</span>
                 <span>分类：民生经济</span>
-                <span>添加时间：{{message.clickamount|dateConvert('YYYY年-MM月-DD日')}}</span>
+                <span>添加时间：{{message.time|dateConvert('YYYY年-MM月-DD日')}}</span>
             </div>
         </div>
-        <div class="news-content">{{message.content}}
-        </div>
+        <div class="news-content" v-html="message.content"></div>
     </div>
 </template>
 <script>
@@ -18,11 +17,12 @@
         data(){
             return {
                 message:{
-
+                    //require('@/assets/lun01.jpg')
                     title:'十三届全国人大三次会议举行二次通过',
                     time:'2012-12-21 23:01:02',
                     clickamount:3000,
-                    content:`"新华社北京5月25日电 题：脚踏实地 逐梦前行——十三届全国人大三次会议第二场“代表通道”扫描
+                    content:"<img src='https://t7.baidu.com/it/u=3616242789,1098670747&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1591269090&t=e2f90f1f37dbdcf3ca87cf1a4394cf17' alt='这是一个图片'/>"+
+                            `<p>新华社北京5月25日电 题：脚踏实地 逐梦前行——十三届全国人大三次会议第二场“代表通道”扫描
 
 新华社记者韩洁、孙少龙
 
@@ -84,11 +84,15 @@
 
 发展5G通信等前沿学科、创建未来技术实验班、设立储能新专业……王树国说，迎接第四次工业革命浪潮，当务之急是培养高端人才，依靠科技创新抢抓未来机遇。
 
-短短半小时，代表们有力的话语在通道上激荡。全面小康的百年梦想近在咫尺，越到关键时刻，越要脚踏实地，肩负时代使命，用奋斗书写未来。"`
+短短半小时，代表们有力的话语在通道上激荡。全面小康的百年梦想近在咫尺，越到关键时刻，越要脚踏实地，肩负时代使命，用奋斗书写未来。</p>`
+
                     
                 }
             }
-        }
+        },
+        created() {
+            console.log(this.$route.query.param+" "+this.$route.query.id)
+        },
         //该方法中使用axios调用服务端数据进行显示
         // created() {
         //     /*打印路由参数值*/
@@ -120,5 +124,10 @@
 /* 主体文章的左右padding */
 .news-content{
     padding: 10px 5px;
+}
+.news-content img{
+    float: left;
+    padding-right:11px;
+    padding-bottom: 5px;
 }
 </style>

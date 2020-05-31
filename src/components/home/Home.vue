@@ -15,12 +15,16 @@
                 </router-link>
             </li>
             <li>
-                <img src="../../assets/fenxiang.jpg">
-                <div class="p">图文分享</div>
+                <router-link to="/share/list/5">
+                    <img src="../../assets/fenxiang.jpg">
+                    <div class="p">图文分享</div>
+                </router-link>
             </li>
             <li>
-                <img src="../../assets/zhanshi.jpg">
-                <div class="p">商品展示</div>
+                <router-link :to="{name:'goodsList',query:{id:1}}">
+                    <img src="../../assets/zhanshi.jpg">
+                    <div class="p">商品展示</div>
+                </router-link>
             </li>
             <li>
                 <img src="../../assets/liuyan.jpg">

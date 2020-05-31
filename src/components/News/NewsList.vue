@@ -7,9 +7,9 @@
         </div>
 
         <div class="demo">
-            <ul v-for="item in news" :key="item.id">
+            <ul class="newsdiv" v-for="item in news" :key="item.id">
                 <li>
-                    <router-link :to="{name:'newsDetail',query:{id:item.id}}">
+                    <router-link :to="{name:'newsDetail',query:{id:item.id,param:'张三'}}">
                         <img  :src="item.newsimg">
                         <div>
                             <span>{{item.title}}</span>
@@ -115,7 +115,64 @@
                         time:'2020-05-25 09:11:36',
                         clickamount:15550,
                         newsimg: require('@/assets/news/news03.jpg')
-                    }
+                    },// 
+                    {
+                        id:10,
+                        title:'巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:11,
+                        title:'巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:12,
+                        title:'巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:13,
+                        title:'巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:14,
+                        title:'巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:15,
+                        title:'15巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:16,
+                        title:'16巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    {
+                        id:17,
+                        title:'17巴基斯坦客机失事初步调查疑问重重，完整报告3个月内公布',
+                        time:'2020-05-25 09:11:36',
+                        clickamount:15550,
+                        newsimg: require('@/assets/news/news03.jpg')
+                    },
+                    
                 ]
             }
         }
@@ -127,19 +184,23 @@ ul{
     
 }
 li{
-    margin-bottom: -25px;
+    margin-bottom: -50px;
+    height: 20px;
+    
 }
 .demo{
     position: absolute;
+    margin-bottom: 70px;
 }
 .demo a{
     display: block;
     width:340px;
     position: relative;
-    top:10px;
-    height:150px;
+    top:2px;
+    height:100px;
     color: purple;
-    padding: 10px 25px;
+    padding: 5px 15px;
+    border-bottom: 3px red solid;
 }
 .demo img{
     float: left;
@@ -178,14 +239,12 @@ li{
     margin-left: 20%;
 }
 .line{
-    position: relative;
-    top:0px;
     margin-bottom: 0px;
     transform: scaleY(.5);
     border-bottom: 1px solid silver;
 }
-/* .news-desc p{
+.news-desc p{
     text-align: left;
-} */
+}
 
 </style>
